@@ -7,7 +7,9 @@
     "typings:install": "node node_modules/typings/dist/bin install",
     "demo:watch": "webpack --progress --colors --watch",
     "demo:dist": "webpack --progress --colors --dist",
-    "build": "node node_modules/typescript/bin/tsc"
+    "build": "node node_modules/typescript/bin/tsc",
+    "test": "karma start karma.conf.js",
+    "test:watch": "npm run test -- --auto-watch --no-single-run"
   },
   "files": [
     "dist",
@@ -37,6 +39,13 @@
     "core-js": "^2.4.0",
     "es6-shim": "^0.35.0",
     "html-loader": "^0.4.3",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.1.2",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-requirejs": "^1.0.0",
+    "karma-webpack": "^1.7.0",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.6",
     "ts-loader": "^0.8.2",
