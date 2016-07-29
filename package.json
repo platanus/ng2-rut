@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "typings:install": "node node_modules/typings/dist/bin install",
+    "demo:watch": "webpack --progress --colors --watch",
+    "demo:dist": "webpack --progress --colors --dist",
     "build": "node node_modules/typescript/bin/tsc"
   },
   "files": [
@@ -29,16 +31,18 @@
     "@angular/common": "2.0.0-rc.4",
     "@angular/compiler": "2.0.0-rc.4",
     "@angular/core": "2.0.0-rc.4",
+    "@angular/forms": "0.2.0",
     "@angular/platform-browser": "2.0.0-rc.4",
     "@angular/platform-browser-dynamic": "2.0.0-rc.4",
-    "@angular/forms": "0.2.0",
     "core-js": "^2.4.0",
     "es6-shim": "^0.35.0",
+    "html-loader": "^0.4.3",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.6",
+    "ts-loader": "^0.8.2",
     "typescript": "^1.8.0",
     "typings": "^1.0.4",
+    "webpack": "^1.13.1",
     "zone.js": "0.6.12"
-  },
-  "dependencies": {}
+  }
 }

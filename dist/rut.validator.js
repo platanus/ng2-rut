@@ -13,11 +13,7 @@ var forms_1 = require('@angular/forms');
 var rut_service_1 = require('./rut.service');
 function validateRutFactory(rutService) {
     return function (c) {
-        return rutService.validateRut(c.value) ? null : {
-            validateRut: {
-                valid: false,
-            },
-        };
+        return rutService.validateRut(c.value) ? null : { invalidRut: true };
     };
 }
 var RutValidator = (function () {

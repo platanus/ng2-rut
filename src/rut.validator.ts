@@ -4,11 +4,7 @@ import { RutService } from './rut.service';
 
 function validateRutFactory(rutService: RutService) {
   return (c: FormControl) => {
-    return rutService.validateRut(c.value) ? null : {
-      validateRut: {
-        valid: false,
-      },
-    };
+    return rutService.validateRut(c.value) ? null : { invalidRut: true };
   };
 }
 
