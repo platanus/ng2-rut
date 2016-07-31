@@ -35,7 +35,7 @@ var RutComponent = (function () {
         core_1.Component({
             selector: 'rut',
             providers: [rut_service_1.RutService],
-            template: "\n    <input type=\"text\"\n      [ngModel]=\"rutValue\"\n      (ngModelChange)=\"onChange($event)\"\n      (focus)=\"onFocus($event.target.value)\"\n      (blur)=\"onBlur($event.target.value)\">\n  ",
+            template: "\n    <input type=\"text\"\n      class=\"rut-input\"\n      [ngModel]=\"rutValue\"\n      (ngModelChange)=\"onChange($event)\"\n      (focus)=\"onFocus($event.target.value)\"\n      (blur)=\"onBlur($event.target.value)\">\n  ",
         }), 
         __metadata('design:paramtypes', [rut_service_1.RutService])
     ], RutComponent);

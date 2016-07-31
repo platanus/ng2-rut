@@ -6,6 +6,7 @@ import { RutService } from './rut.service';
   providers: [RutService],
   template: `
     <input type="text"
+      class="rut-input"
       [ngModel]="rutValue"
       (ngModelChange)="onChange($event)"
       (focus)="onFocus($event.target.value)"
