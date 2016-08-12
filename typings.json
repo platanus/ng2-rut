@@ -1,7 +1,8 @@
 {
+  "name": "ng2-rut",
   "dependencies": {},
-  "globalDevDependencies": {
-    "node": "registry:dt/node#6.0.0+20160728152422",
-    "core-js": "registry:dt/core-js#0.0.0+20160602141332"
-  }
+  "globalDependencies": {
+    "es6-shim": "registry:dt/es6-shim#0.31.2+20160602141504"
+  },
+  "globalDevDependencies": {}
 }

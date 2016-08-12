@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "typings:install": "node node_modules/typings/dist/bin install",
-    "demo:watch": "webpack --progress --colors --watch",
+    "demo:watch": "webpack-dev-server --progress --colors --watch --config webpack.demo.js",
     "demo:dist": "webpack --progress --colors --dist",
     "build": "node node_modules/typescript/bin/tsc",
     "test": "karma start karma.conf.js",
