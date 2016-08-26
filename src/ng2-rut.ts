@@ -3,3 +3,4 @@ export { RutPipe } from './rut.pipe';
 export { RutService } from './rut.service';
 export { RutValidator } from './rut.validator';
 export { RutValueAccessor } from './rut-value-accessor';
+export { RutDirective } from './rut.directive';

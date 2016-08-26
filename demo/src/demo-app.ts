@@ -2,13 +2,12 @@ import { Component } from '@angular/core';
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { disableDeprecatedForms, provideForms } from '@angular/forms';
 
-import { RutComponent, RutValueAccessor, RutService, RutPipe, RutValidator } from '../../src/ng2-rut';
+import { RutComponent, RutPipe, RutValidator, RutDirective } from '../../src/ng2-rut';
 
 @Component({
   selector: 'demo-app',
-  template: require('./demo-app.html'),
-  directives: [RutComponent, RutValueAccessor, RutValidator],
-  providers: [RutService],
+  template: require<string>('./demo-app.html'),
+  directives: [RutComponent, RutValidator, RutDirective],
   pipes: [RutPipe],
 })
 class DemoApp {

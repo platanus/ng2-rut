@@ -16,3 +16,23 @@
   <br /><br />
   <button class="btn btn-primary" type="submit">Submit</button>
 </form>
+
+
+<h3>User Data Directive</h3>
+<pre>{{ user | json }}</pre>
+
+<h3>Pipe</h3>
+<pre>{{ user.rutDirective | rut }}</pre>
+
+<h3>User Form Directive</h3>
+
+<form #userFormD="ngForm" (ngSubmit)="onSubmit(userFormD)">
+  <label for="rutDirective">RUT</label>
+  <input type="text" plRut [(ngModel)]="user.rutDirective" name="rutDirective" #rutDirective="ngModel" validateRut>
+  <ul [hidden]="rutDirective.valid || rutDirective.pristine">
+    <li *ngIf="rutDirective.errors && rutDirective.errors.required">Required</li>
+    <li *ngIf="rutDirective.errors && rutDirective.errors.invalidRut">Invalid</li>
+  </ul>
+  <br /><br />
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
