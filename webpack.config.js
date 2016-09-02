@@ -20,7 +20,7 @@ var config = {
   },
   resolve: {
     root: srcPath,
-    extensions: ['', '.js', '.ts'],
+    extensions: ['', '.js', '.ts', '.html'],
     modulesDirectories: ['node_modules'],
     alias: {}
   },

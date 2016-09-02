@@ -4,6 +4,7 @@ import { NgControl } from '@angular/forms';
 
 @Directive({
   selector: 'input[plRut]',
+  providers: [RutService],
 })
 export class RutDirective {
   public formattedRut: string;

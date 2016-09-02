@@ -1,9 +1,12 @@
-import { Directive, Provider, forwardRef } from '@angular/core';
+import { Directive, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { RutComponent } from './rut.component';
 
-const CUSTOM_VALUE_ACCESSOR: Provider = new Provider(
-  NG_VALUE_ACCESSOR, {useExisting: forwardRef(() => RutValueAccessor), multi: true});
+const CUSTOM_VALUE_ACCESSOR: any = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => RutValueAccessor),
+  multi: true,
+};
 
 @Directive({
   selector: 'rut',

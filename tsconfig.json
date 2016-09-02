@@ -10,7 +10,7 @@
     "outDir": "./dist"
   },
   "files": [
-    "src/ng2-rut.ts",
+    "src/ng2-rut.module.ts",
     "typings/index.d.ts"
   ]
 }

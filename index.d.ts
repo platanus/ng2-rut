@@ -1,1 +1,1 @@
-export * from './dist/ng2-rut';
+export * from './dist/ng2-rut.module';
