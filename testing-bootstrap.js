@@ -20,8 +20,11 @@ Error.stackTraceLimit = Infinity;
 
 require('core-js');
 
+require('reflect-metadata/Reflect');
 require('zone.js/dist/zone');
 require('zone.js/dist/long-stack-trace-zone');
+require('zone.js/dist/proxy');
+require('zone.js/dist/sync-test');
 require('zone.js/dist/jasmine-patch');
 require('zone.js/dist/async-test');
 require('zone.js/dist/fake-async-test');
@@ -32,9 +35,9 @@ require('rxjs/Rx');
 var testing = require('@angular/core/testing');
 var browser = require('@angular/platform-browser-dynamic/testing');
 
-testing.setBaseTestProviders(
-  browser.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
-  browser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
+testing.TestBed.initTestEnvironment(
+    browser.BrowserDynamicTestingModule,
+    browser.platformBrowserDynamicTesting()
 );
 
 Object.assign(global, testing);
@@ -54,8 +57,6 @@ jasmine.MAX_PRETTY_PRINT_DEPTH = 3;
   we say do this recursively
 */
 var testContext = require.context('./src', true, /\.spec\.ts/);
-
-console.info(testContext)
 
 /*
  * get all the files, for each file, call the context function
