@@ -8,6 +8,13 @@ export function validateRutFactory(rutService: RutService) {
   };
 }
 
+@Directive({
+  selector: '[validateRut][ngModel],[validateRut][formControl]',
+  providers: [
+    RutService,
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => RutValidator), multi: true },
+  ],
+})
 export class RutValidator {
   private validator: Function;
 
