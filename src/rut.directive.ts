@@ -1,22 +1,38 @@
-import { Directive, HostListener, ElementRef} from '@angular/core';
+import { Directive, Renderer, ElementRef, EventEmitter, Output } from '@angular/core';
+
 import { RutService } from './rut.service';
-import { NgControl } from '@angular/forms';
 
 @Directive({
-  selector: 'input[plRut]',
-  providers: [RutService]
+  selector: 'input[formatRut]',
+  providers: [RutService],
+  host: {
+    '(blur)': 'onBlur($event.target.value)',
+    '(focus)': 'onFocus($event.target.value)',
+    '(input)': 'onChange($event.target.value)',
+  }
 })
 export class RutDirective {
-  public formattedRut: string;
-  public cleanRut: string;
-  private srv: RutService;
-  private ngControl: NgControl;
-  private el: ElementRef;
+  @Output() rutChange: EventEmitter<any>;
 
-  constructor(rutService: RutService, ngControl: NgControl, el: ElementRef) {
-    this.srv = rutService;
-    this.ngControl = ngControl;
-    this.el = el;
+  constructor(
+    private rutService: RutService,
+    private _elementRef: ElementRef,
+    private _renderer: Renderer) {
+      this.rutChange = new EventEmitter();
+    }
+
+  public onFocus(value:string) {
+    let cleanedRut = this.rutService.cleanRut(value);
+    this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', cleanedRut);
+  }
+
+  public onBlur(value:string) {
+    let formattedRut = this.rutService.formatRut(value) || '';
+    this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', formattedRut);
+  }
+
+  public onChange(value:string) {
+    this.rutChange.emit(this.rutService.cleanRut(value));
   }
 
 }
