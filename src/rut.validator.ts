@@ -1,4 +1,4 @@
-import { Directive, forwardRef, Inject } from '@angular/core';
+import { Directive, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, FormControl } from '@angular/forms';
 import { RutService } from './rut.service';
 
