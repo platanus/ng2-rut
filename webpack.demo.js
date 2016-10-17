@@ -11,7 +11,7 @@ var config = {
   target: 'web',
   cache: true,
   entry: {
-    app: path.join(srcPath, 'demo-app.ts'),
+    app: path.join(srcPath, 'demo-app.module.ts'),
     common: [
       'reflect-metadata/Reflect.js',
       'es6-shim/es6-shim',

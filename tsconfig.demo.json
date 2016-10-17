@@ -8,7 +8,8 @@
     "moduleResolution": "node"
   },
   "files": [
-    "demo/src/demo-app.ts",
+    "demo/src/demo-app.module.ts",
+    "demo/src/demo-app.component.ts",
     "typings/index.d.ts"
   ]
 }
