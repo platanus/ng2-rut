@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { RutValidator } from '../../src/rut.validator'
+import { RutValidator } from '../../src'
 
 @Component({
   selector: 'demo-app',

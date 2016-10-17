@@ -3,13 +3,15 @@ import { FormsModule } from '@angular/forms';
 
 import { RutPipe } from './rut.pipe';
 import { RutService } from './rut.service';
-import { validateRutFactory, RutValidator } from './rut.validator';
 import { RutDirective } from './rut.directive';
+import { RutValueAccessor } from './rut-value-accessor';
+import { RutValidator, validateRutFactory } from './rut.validator';
 
 export * from './rut.pipe';
 export * from './rut.service';
-export * from './rut.validator';
 export * from './rut.directive';
+export * from './rut-value-accessor';
+export * from './rut.validator';
 
 // for angular-cli
 export default {
@@ -18,21 +20,24 @@ export default {
     directives: [RutDirective],
 };
 
-
 @NgModule({
   imports: [
     FormsModule,
   ],
   declarations: [
-    RutDirective,
     RutPipe,
+    RutDirective,
+    RutValueAccessor,
+    RutValidator,
   ],
   providers: [
     RutService,
   ],
   exports: [
     RutPipe,
-    RutDirective
+    RutDirective,
+    RutValueAccessor,
+    RutValidator,
   ],
 })
 export class Ng2Rut {}
