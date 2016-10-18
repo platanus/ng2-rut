@@ -26,7 +26,7 @@ export class RutValueAccessor implements ControlValueAccessor {
   public onTouched: any = () => { /*Empty*/ }
 
   public writeValue(value: any): void {
-    let normalizedValue = this.rutService.formatRut(value);
+    let normalizedValue = this.rutService.formatRut(value) || '';
     this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', normalizedValue);
   }
 
