@@ -16,6 +16,7 @@ function validateRutFactory(rutService) {
         return rutService.validateRut(c.value) ? null : { invalidRut: true };
     };
 }
+exports.validateRutFactory = validateRutFactory;
 var RutValidator = (function () {
     function RutValidator(rutService) {
         this.validator = validateRutFactory(rutService);

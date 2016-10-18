@@ -3,8 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { Ng2Rut } from '../../src';
-import { RutValidator } from '../../src';
+import { Ng2Rut, RutValidator } from '../../src/ng2-rut.module';
 
 import { DemoAppComponent } from './demo-app.component'
 

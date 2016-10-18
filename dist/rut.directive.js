@@ -10,47 +10,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var rut_service_1 = require('./rut.service');
-var forms_1 = require('@angular/forms');
 var RutDirective = (function () {
-    function RutDirective(rutService, ngControl) {
-        this.srv = rutService;
-        this.ngControl = ngControl;
+    function RutDirective(rutService, _elementRef, _renderer) {
+        this.rutService = rutService;
+        this._elementRef = _elementRef;
+        this._renderer = _renderer;
+        this.rutChange = new core_1.EventEmitter();
     }
-    RutDirective.prototype.getFormattedRut = function (value) {
-        return this.srv.formatRut(value);
-    };
-    RutDirective.prototype.getCleanRut = function (value) {
-        return this.srv.cleanRut(value);
+    RutDirective.prototype.onFocus = function (value) {
+        var cleanedRut = this.rutService.cleanRut(value);
+        this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', cleanedRut);
     };
     RutDirective.prototype.onBlur = function (value) {
-        this.formattedRut = this.getFormattedRut(value);
-        this.cleanRut = this.getCleanRut(value);
-        this.ngControl.valueAccessor.writeValue(this.formattedRut);
-        this.ngControl.viewToModelUpdate(this.cleanRut);
+        var formattedRut = this.rutService.formatRut(value) || '';
+        this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', formattedRut);
     };
-    RutDirective.prototype.onFocus = function (value) {
-        this.cleanRut = this.getCleanRut(value);
-        this.ngControl.valueAccessor.writeValue(this.cleanRut);
-        this.ngControl.viewToModelUpdate(this.cleanRut);
+    RutDirective.prototype.onChange = function (value) {
+        this.rutChange.emit(this.rutService.cleanRut(value));
     };
     __decorate([
-        core_1.HostListener('blur', ['$event.target.value']), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', [String]), 
-        __metadata('design:returntype', void 0)
-    ], RutDirective.prototype, "onBlur", null);
-    __decorate([
-        core_1.HostListener('focus', ['$event.target.value']), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', [String]), 
-        __metadata('design:returntype', void 0)
-    ], RutDirective.prototype, "onFocus", null);
+        core_1.Output(), 
+        __metadata('design:type', core_1.EventEmitter)
+    ], RutDirective.prototype, "rutChange", void 0);
     RutDirective = __decorate([
         core_1.Directive({
-            selector: 'input[plRut]',
+            selector: 'input[formatRut]',
             providers: [rut_service_1.RutService],
+            host: {
+                '(blur)': 'onBlur($event.target.value)',
+                '(focus)': 'onFocus($event.target.value)',
+                '(input)': 'onChange($event.target.value)',
+            }
         }), 
-        __metadata('design:paramtypes', [rut_service_1.RutService, forms_1.NgControl])
+        __metadata('design:paramtypes', [rut_service_1.RutService, core_1.ElementRef, core_1.Renderer])
     ], RutDirective);
     return RutDirective;
 }());
