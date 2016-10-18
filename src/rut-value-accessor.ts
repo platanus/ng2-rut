@@ -12,7 +12,10 @@ const RUT_VALUE_ACCESSOR: any = {
 
 @Directive({
   selector: 'input[formatRut]',
-  host: {'(rutChange)': 'onChange($event)'},
+  host: {
+    '(rutChange)': 'onChange($event)',
+    '(blur)': 'onTouched($event)'
+  },
   providers: [RUT_VALUE_ACCESSOR, RutService],
 })
 export class RutValueAccessor implements ControlValueAccessor {
