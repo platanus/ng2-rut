@@ -26,7 +26,7 @@ var RutValueAccessor = (function () {
         this.onTouched = function () { };
     }
     RutValueAccessor.prototype.writeValue = function (value) {
-        var normalizedValue = this.rutService.formatRut(value);
+        var normalizedValue = this.rutService.formatRut(value) || '';
         this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', normalizedValue);
     };
     RutValueAccessor.prototype.registerOnChange = function (fn) { this.onChange = fn; };
@@ -34,7 +34,10 @@ var RutValueAccessor = (function () {
     RutValueAccessor = __decorate([
         core_1.Directive({
             selector: 'input[formatRut]',
-            host: { '(rutChange)': 'onChange($event)' },
+            host: {
+                '(rutChange)': 'onChange($event)',
+                '(blur)': 'onTouched($event)'
+            },
             providers: [RUT_VALUE_ACCESSOR, rut_service_1.RutService],
         }), 
         __metadata('design:paramtypes', [rut_service_1.RutService, core_2.Renderer, core_2.ElementRef])
