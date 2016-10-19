@@ -1,4 +1,4 @@
-import { Directive, forwardRef, Inject } from '@angular/core';
+import { Directive, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, FormControl } from '@angular/forms';
 import { RutService } from './rut.service';
 
@@ -8,6 +8,13 @@ export function validateRutFactory(rutService: RutService) {
   };
 }
 
+@Directive({
+  selector: '[validateRut][ngModel],[validateRut][formControl]',
+  providers: [
+    RutService,
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => RutValidator), multi: true },
+  ],
+})
 export class RutValidator {
   private validator: Function;
 

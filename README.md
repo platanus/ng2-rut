@@ -9,7 +9,39 @@ TODO
 
 ## Usage
 
-TODO
+### Set-up:
+
+The easier way is to import the Ng2Rut module at your app-level module ending with something like this:
+
+```typescript
+import { NgModule } from '@angular/core';
+import { Ng2Rut, RutValidator } from '../../src';
+import { BrowserModule } from '@angular/platform-browser';
+
+@NgModule({
+  declarations: [
+    DemoAppComponent,
+  ],
+  providers: [RutValidator],
+  imports: [
+    BrowserModule,
+		...,
+    Ng2Rut
+  ],
+  bootstrap: [DemoAppComponent],
+})
+class DemoAppModule { }
+```
+
+See `./demo` folder for a fully working example.
+
+### Using it:
+
+ng2 rut exposes various elements that can be used to perform input validation and formatting. Probably you want to use one of the following:
+
+- `RutValidator`: Exposes the `validateRut` directive (to attach to models or inputs) and the RutValidator class to be used as `Validator` on reactive forms.
+- `RutPipe`: Exposes the `RutPipe` pipe to format rut numbers on templates
+- `RutDirective`: Exposes the `formatRut` directive to format RUT inputs.
 
 ## Contributing
 

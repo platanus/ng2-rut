@@ -10,30 +10,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
-var rut_component_1 = require('./rut.component');
-var CUSTOM_VALUE_ACCESSOR = {
+var rut_service_1 = require('./rut.service');
+var core_2 = require('@angular/core');
+var RUT_VALUE_ACCESSOR = {
     provide: forms_1.NG_VALUE_ACCESSOR,
     useExisting: core_1.forwardRef(function () { return RutValueAccessor; }),
-    multi: true,
+    multi: true
 };
 var RutValueAccessor = (function () {
-    function RutValueAccessor(host) {
-        this.host = host;
+    function RutValueAccessor(rutService, _renderer, _elementRef) {
+        this.rutService = rutService;
+        this._renderer = _renderer;
+        this._elementRef = _elementRef;
         this.onChange = function (_) { };
         this.onTouched = function () { };
     }
     RutValueAccessor.prototype.writeValue = function (value) {
-        this.host.setValue(value);
+        var normalizedValue = this.rutService.formatRut(value) || '';
+        this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', normalizedValue);
     };
     RutValueAccessor.prototype.registerOnChange = function (fn) { this.onChange = fn; };
     RutValueAccessor.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
     RutValueAccessor = __decorate([
         core_1.Directive({
-            selector: 'rut',
-            host: { '(rutChange)': 'onChange($event)' },
-            providers: [CUSTOM_VALUE_ACCESSOR],
+            selector: 'input[formatRut]',
+            host: {
+                '(rutChange)': 'onChange($event)',
+                '(blur)': 'onTouched($event)'
+            },
+            providers: [RUT_VALUE_ACCESSOR, rut_service_1.RutService],
         }), 
-        __metadata('design:paramtypes', [rut_component_1.RutComponent])
+        __metadata('design:paramtypes', [rut_service_1.RutService, core_2.Renderer, core_2.ElementRef])
     ], RutValueAccessor);
     return RutValueAccessor;
 }());

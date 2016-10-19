@@ -1,13 +1,12 @@
+import { Renderer, ElementRef, EventEmitter } from '@angular/core';
 import { RutService } from './rut.service';
-import { NgControl } from '@angular/forms';
 export declare class RutDirective {
-    formattedRut: string;
-    cleanRut: string;
-    private srv;
-    private ngControl;
-    constructor(rutService: RutService, ngControl: NgControl);
-    getFormattedRut(value: string): string;
-    getCleanRut(value: string): string;
-    onBlur(value: string): void;
+    private rutService;
+    private _elementRef;
+    private _renderer;
+    rutChange: EventEmitter<any>;
+    constructor(rutService: RutService, _elementRef: ElementRef, _renderer: Renderer);
     onFocus(value: string): void;
+    onBlur(value: string): void;
+    onChange(value: string): void;
 }

@@ -13,27 +13,23 @@ function __export(m) {
 }
 var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
-var rut_component_1 = require('./rut.component');
 var rut_pipe_1 = require('./rut.pipe');
 var rut_service_1 = require('./rut.service');
 var rut_validator_1 = require('./rut.validator');
-var rut_value_accessor_1 = require('./rut-value-accessor');
 var rut_directive_1 = require('./rut.directive');
-__export(require('./rut.component'));
+var rut_value_accessor_1 = require('./rut-value-accessor');
 __export(require('./rut.pipe'));
 __export(require('./rut.service'));
 __export(require('./rut.validator'));
-__export(require('./rut-value-accessor'));
 __export(require('./rut.directive'));
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
     pipes: [rut_pipe_1.RutPipe],
-    providers: [rut_service_1.RutService, rut_value_accessor_1.RutValueAccessor],
-    directives: [rut_component_1.RutComponent, rut_directive_1.RutDirective],
+    providers: [rut_service_1.RutService],
+    directives: [rut_directive_1.RutDirective],
 };
 var Ng2Rut = (function () {
     function Ng2Rut() {
-        console.log('hola');
     }
     Ng2Rut = __decorate([
         core_1.NgModule({
@@ -41,21 +37,20 @@ var Ng2Rut = (function () {
                 forms_1.FormsModule,
             ],
             declarations: [
-                rut_component_1.RutComponent,
-                rut_directive_1.RutDirective,
                 rut_pipe_1.RutPipe,
+                rut_directive_1.RutDirective,
                 rut_validator_1.RutValidator,
                 rut_value_accessor_1.RutValueAccessor,
             ],
             providers: [
                 rut_service_1.RutService,
+                rut_validator_1.RutValidator
             ],
             exports: [
                 rut_pipe_1.RutPipe,
-                rut_component_1.RutComponent,
                 rut_directive_1.RutDirective,
                 rut_validator_1.RutValidator,
-                rut_value_accessor_1.RutValueAccessor,
+                rut_value_accessor_1.RutValueAccessor
             ],
         }), 
         __metadata('design:paramtypes', [])

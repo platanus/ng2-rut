@@ -5,6 +5,7 @@ import { RutPipe } from './rut.pipe';
 import { RutService } from './rut.service';
 import { validateRutFactory, RutValidator } from './rut.validator';
 import { RutDirective } from './rut.directive';
+import { RutValueAccessor } from './rut-value-accessor';
 
 export * from './rut.pipe';
 export * from './rut.service';
@@ -24,15 +25,20 @@ export default {
     FormsModule,
   ],
   declarations: [
-    RutDirective,
     RutPipe,
+    RutDirective,
+    RutValidator,
+    RutValueAccessor,
   ],
   providers: [
     RutService,
+    RutValidator
   ],
   exports: [
     RutPipe,
-    RutDirective
+    RutDirective,
+    RutValidator,
+    RutValueAccessor
   ],
 })
 export class Ng2Rut {}
