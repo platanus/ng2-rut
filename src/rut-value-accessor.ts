@@ -1,6 +1,6 @@
 import { Directive, ValueProvider, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { RutService } from './rut.service';
+import { rutFormat } from 'rut-helpers';
 
 import { ElementRef, Renderer } from '@angular/core';
 
@@ -16,11 +16,10 @@ const RUT_VALUE_ACCESSOR: any = {
     '(rutChange)': 'onChange($event)',
     '(blur)': 'onTouched($event)'
   },
-  providers: [RUT_VALUE_ACCESSOR, RutService],
+  providers: [RUT_VALUE_ACCESSOR],
 })
 export class RutValueAccessor implements ControlValueAccessor {
   constructor(
-    private rutService: RutService,
     private _renderer: Renderer,
     private _elementRef: ElementRef
     ) { }
@@ -29,7 +28,7 @@ export class RutValueAccessor implements ControlValueAccessor {
   public onTouched: any = () => { /*Empty*/ }
 
   public writeValue(value: any): void {
-    let normalizedValue = this.rutService.formatRut(value) || '';
+    let normalizedValue = rutFormat(value) || '';
     this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', normalizedValue);
   }
 

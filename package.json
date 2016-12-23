@@ -36,9 +36,6 @@
     "@angular/platform-browser-dynamic": "~2.4.1",
     "@types/requirejs": "^2.1.26",
     "core-js": "^2.4.1",
-    "reflect-metadata": "^0.1.3",
-    "rxjs": "^5.0.1",
-    "zone.js": "^0.7.2",
     "html-loader": "^0.4.3",
     "jasmine-core": "^2.4.1",
     "karma": "^1.1.2",
@@ -47,10 +44,16 @@
     "karma-phantomjs-launcher": "^1.0.1",
     "karma-requirejs": "^1.0.0",
     "karma-webpack": "^1.7.0",
+    "reflect-metadata": "^0.1.3",
     "requirejs": "^2.3.1",
+    "rxjs": "^5.0.1",
     "ts-loader": "^1.3.0",
     "typescript": "^2.0.2",
     "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "zone.js": "^0.7.2"
+  },
+  "dependencies": {
+    "rut-helpers": "https://github.com/platanus/rut-helpers.git"
   }
 }

@@ -1,10 +1,8 @@
 import { Directive, Renderer, ElementRef, EventEmitter, Output } from '@angular/core';
-
-import { RutService } from './rut.service';
+import * as rutHelpers from 'rut-helpers';
 
 @Directive({
   selector: 'input[formatRut]',
-  providers: [RutService],
   host: {
     '(blur)': 'onBlur($event.target.value)',
     '(focus)': 'onFocus($event.target.value)',
@@ -15,24 +13,23 @@ export class RutDirective {
   @Output() rutChange: EventEmitter<any>;
 
   constructor(
-    private rutService: RutService,
     private _elementRef: ElementRef,
     private _renderer: Renderer) {
       this.rutChange = new EventEmitter();
     }
 
   public onFocus(value:string) {
-    let cleanedRut = this.rutService.cleanRut(value);
+    let cleanedRut = rutHelpers.rutClean(value);
     this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', cleanedRut);
   }
 
   public onBlur(value:string) {
-    let formattedRut = this.rutService.formatRut(value) || '';
+    let formattedRut = rutHelpers.rutFormat(value) || '';
     this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', formattedRut);
   }
 
   public onChange(value:string) {
-    this.rutChange.emit(this.rutService.cleanRut(value));
+    this.rutChange.emit(rutHelpers.rutClean(value));
   }
 
 }

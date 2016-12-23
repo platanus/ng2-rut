@@ -2013,6 +2013,10 @@ ripemd160@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/ripemd160/-/ripemd160-0.2.0.tgz#2bf198bde167cacfa51c0a928e84b68bbe171fce"
 
+"rut-helpers@https://github.com/platanus/rut-helpers.git":
+  version "0.0.2"
+  resolved "https://github.com/platanus/rut-helpers.git#9815625a622a27d6f4ef58fd3645fd6fc8ac9c91"
+
 rxjs@^5.0.1:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.0.2.tgz#cc6513756daa93cab4085c1b5a19a3e28fb6c6bf"
