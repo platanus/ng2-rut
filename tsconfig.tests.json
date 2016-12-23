@@ -5,9 +5,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
-    "moduleResolution": "node"
-  },
-  "files": [
-    "typings/index.d.ts"
-  ]
+    "moduleResolution": "node",
+    "lib": ["dom", "es6"]
+  }
 }

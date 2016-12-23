@@ -14,7 +14,6 @@ var config = {
     app: path.join(srcPath, 'demo-app.module.ts'),
     common: [
       'reflect-metadata/Reflect.js',
-      'es6-shim/es6-shim',
       'zone.js/dist/zone.js',
       '@angular/platform-browser',
       '@angular/platform-browser-dynamic',

@@ -14,7 +14,6 @@ var config = {
     app: path.join(srcPath, 'demo-app.ts'),
     common: [
       'reflect-metadata/Reflect.js',
-      'es6-shim/es6-shim',
       'zone.js/dist/zone.js'
     ]
   },
