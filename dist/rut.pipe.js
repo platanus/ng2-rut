@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var rut_service_1 = require('./rut.service');
+var core_1 = require("@angular/core");
+var rut_service_1 = require("./rut.service");
 var RutPipe = (function () {
     function RutPipe(rutService) {
         this.srv = rutService;
@@ -17,12 +17,12 @@ var RutPipe = (function () {
     RutPipe.prototype.transform = function (value) {
         return this.srv.formatRut(value);
     };
-    RutPipe = __decorate([
-        core_1.Pipe({
-            name: 'rut',
-        }), 
-        __metadata('design:paramtypes', [rut_service_1.RutService])
-    ], RutPipe);
     return RutPipe;
 }());
+RutPipe = __decorate([
+    core_1.Pipe({
+        name: 'rut',
+    }),
+    __metadata("design:paramtypes", [rut_service_1.RutService])
+], RutPipe);
 exports.RutPipe = RutPipe;

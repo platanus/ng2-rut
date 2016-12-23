@@ -8,10 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var forms_1 = require('@angular/forms');
-var rut_service_1 = require('./rut.service');
-var core_2 = require('@angular/core');
+var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms");
+var rut_service_1 = require("./rut.service");
+var core_2 = require("@angular/core");
 var RUT_VALUE_ACCESSOR = {
     provide: forms_1.NG_VALUE_ACCESSOR,
     useExisting: core_1.forwardRef(function () { return RutValueAccessor; }),
@@ -31,17 +31,19 @@ var RutValueAccessor = (function () {
     };
     RutValueAccessor.prototype.registerOnChange = function (fn) { this.onChange = fn; };
     RutValueAccessor.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
-    RutValueAccessor = __decorate([
-        core_1.Directive({
-            selector: 'input[formatRut]',
-            host: {
-                '(rutChange)': 'onChange($event)',
-                '(blur)': 'onTouched($event)'
-            },
-            providers: [RUT_VALUE_ACCESSOR, rut_service_1.RutService],
-        }), 
-        __metadata('design:paramtypes', [rut_service_1.RutService, core_2.Renderer, core_2.ElementRef])
-    ], RutValueAccessor);
     return RutValueAccessor;
 }());
+RutValueAccessor = __decorate([
+    core_1.Directive({
+        selector: 'input[formatRut]',
+        host: {
+            '(rutChange)': 'onChange($event)',
+            '(blur)': 'onTouched($event)'
+        },
+        providers: [RUT_VALUE_ACCESSOR, rut_service_1.RutService],
+    }),
+    __metadata("design:paramtypes", [rut_service_1.RutService,
+        core_2.Renderer,
+        core_2.ElementRef])
+], RutValueAccessor);
 exports.RutValueAccessor = RutValueAccessor;

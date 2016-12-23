@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var RutService = (function () {
     function RutService() {
     }
@@ -43,10 +43,10 @@ var RutService = (function () {
         var v = (s > 0) ? (s - 1) + '' : 'K';
         return (v === value.slice(-1));
     };
-    RutService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
-    ], RutService);
     return RutService;
 }());
+RutService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [])
+], RutService);
 exports.RutService = RutService;

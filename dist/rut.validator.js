@@ -8,32 +8,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var forms_1 = require('@angular/forms');
-var rut_service_1 = require('./rut.service');
+var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms");
+var rut_service_1 = require("./rut.service");
 function validateRutFactory(rutService) {
     return function (c) {
         return rutService.validateRut(c.value) ? null : { invalidRut: true };
     };
 }
 exports.validateRutFactory = validateRutFactory;
-var RutValidator = (function () {
+var RutValidator = RutValidator_1 = (function () {
     function RutValidator(rutService) {
         this.validator = validateRutFactory(rutService);
     }
     RutValidator.prototype.validate = function (c) {
         return this.validator(c);
     };
-    RutValidator = __decorate([
-        core_1.Directive({
-            selector: '[validateRut][ngModel],[validateRut][formControl]',
-            providers: [
-                rut_service_1.RutService,
-                { provide: forms_1.NG_VALIDATORS, useExisting: core_1.forwardRef(function () { return RutValidator; }), multi: true },
-            ],
-        }), 
-        __metadata('design:paramtypes', [rut_service_1.RutService])
-    ], RutValidator);
     return RutValidator;
 }());
+RutValidator = RutValidator_1 = __decorate([
+    core_1.Directive({
+        selector: '[validateRut][ngModel],[validateRut][formControl]',
+        providers: [
+            rut_service_1.RutService,
+            { provide: forms_1.NG_VALIDATORS, useExisting: core_1.forwardRef(function () { return RutValidator_1; }), multi: true },
+        ],
+    }),
+    __metadata("design:paramtypes", [rut_service_1.RutService])
+], RutValidator);
 exports.RutValidator = RutValidator;
+var RutValidator_1;
