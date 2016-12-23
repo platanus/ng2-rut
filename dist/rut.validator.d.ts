@@ -1,10 +1,10 @@
 import { FormControl } from '@angular/forms';
-import { RutService } from './rut.service';
-export declare function validateRutFactory(rutService: RutService): (c: FormControl) => {
+import { rutValidate } from 'rut-helpers';
+export declare function validateRutFactory(rutValidate: rutValidate): (c: FormControl) => {
     invalidRut: boolean;
 };
 export declare class RutValidator {
     private validator;
-    constructor(rutService: RutService);
+    constructor();
     validate(c: FormControl): any;
 }

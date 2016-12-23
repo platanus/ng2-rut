@@ -9,13 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var rut_service_1 = require("./rut.service");
+var rut_helpers_1 = require("rut-helpers");
 var RutPipe = (function () {
-    function RutPipe(rutService) {
-        this.srv = rutService;
+    function RutPipe() {
     }
     RutPipe.prototype.transform = function (value) {
-        return this.srv.formatRut(value);
+        return rut_helpers_1.rutFormat(value);
     };
     return RutPipe;
 }());
@@ -23,6 +22,6 @@ RutPipe = __decorate([
     core_1.Pipe({
         name: 'rut',
     }),
-    __metadata("design:paramtypes", [rut_service_1.RutService])
+    __metadata("design:paramtypes", [])
 ], RutPipe);
 exports.RutPipe = RutPipe;

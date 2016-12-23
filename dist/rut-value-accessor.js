@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
-var rut_service_1 = require("./rut.service");
+var rut_helpers_1 = require("rut-helpers");
 var core_2 = require("@angular/core");
 var RUT_VALUE_ACCESSOR = {
     provide: forms_1.NG_VALUE_ACCESSOR,
@@ -18,15 +18,14 @@ var RUT_VALUE_ACCESSOR = {
     multi: true
 };
 var RutValueAccessor = (function () {
-    function RutValueAccessor(rutService, _renderer, _elementRef) {
-        this.rutService = rutService;
+    function RutValueAccessor(_renderer, _elementRef) {
         this._renderer = _renderer;
         this._elementRef = _elementRef;
         this.onChange = function (_) { };
         this.onTouched = function () { };
     }
     RutValueAccessor.prototype.writeValue = function (value) {
-        var normalizedValue = this.rutService.formatRut(value) || '';
+        var normalizedValue = rut_helpers_1.rutFormat(value) || '';
         this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', normalizedValue);
     };
     RutValueAccessor.prototype.registerOnChange = function (fn) { this.onChange = fn; };
@@ -40,10 +39,9 @@ RutValueAccessor = __decorate([
             '(rutChange)': 'onChange($event)',
             '(blur)': 'onTouched($event)'
         },
-        providers: [RUT_VALUE_ACCESSOR, rut_service_1.RutService],
+        providers: [RUT_VALUE_ACCESSOR],
     }),
-    __metadata("design:paramtypes", [rut_service_1.RutService,
-        core_2.Renderer,
+    __metadata("design:paramtypes", [core_2.Renderer,
         core_2.ElementRef])
 ], RutValueAccessor);
 exports.RutValueAccessor = RutValueAccessor;

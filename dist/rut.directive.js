@@ -9,24 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var rut_service_1 = require("./rut.service");
+var rutHelpers = require("rut-helpers");
 var RutDirective = (function () {
-    function RutDirective(rutService, _elementRef, _renderer) {
-        this.rutService = rutService;
+    function RutDirective(_elementRef, _renderer) {
         this._elementRef = _elementRef;
         this._renderer = _renderer;
         this.rutChange = new core_1.EventEmitter();
     }
     RutDirective.prototype.onFocus = function (value) {
-        var cleanedRut = this.rutService.cleanRut(value);
+        var cleanedRut = rutHelpers.rutClean(value);
         this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', cleanedRut);
     };
     RutDirective.prototype.onBlur = function (value) {
-        var formattedRut = this.rutService.formatRut(value) || '';
+        var formattedRut = rutHelpers.rutFormat(value) || '';
         this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', formattedRut);
     };
     RutDirective.prototype.onChange = function (value) {
-        this.rutChange.emit(this.rutService.cleanRut(value));
+        this.rutChange.emit(rutHelpers.rutClean(value));
     };
     return RutDirective;
 }());
@@ -37,15 +36,13 @@ __decorate([
 RutDirective = __decorate([
     core_1.Directive({
         selector: 'input[formatRut]',
-        providers: [rut_service_1.RutService],
         host: {
             '(blur)': 'onBlur($event.target.value)',
             '(focus)': 'onFocus($event.target.value)',
             '(input)': 'onChange($event.target.value)',
         }
     }),
-    __metadata("design:paramtypes", [rut_service_1.RutService,
-        core_1.ElementRef,
+    __metadata("design:paramtypes", [core_1.ElementRef,
         core_1.Renderer])
 ], RutDirective);
 exports.RutDirective = RutDirective;
