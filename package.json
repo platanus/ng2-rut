@@ -54,6 +54,6 @@
     "zone.js": "^0.7.2"
   },
   "dependencies": {
-    "rut-helpers": "https://github.com/platanus/rut-helpers.git"
+    "rut-helpers": "^0.1.0"
   }
 }
