@@ -2,7 +2,7 @@ import { Directive, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, FormControl } from '@angular/forms';
 import { rutValidate } from 'rut-helpers';
 
-export function validateRutFactory(rutValidate: rutValidate) {
+export function validateRutFactory(rutValidate: Function) {
   return (c: FormControl) => {
     return rutValidate(c.value) ? null : { invalidRut: true };
   };
