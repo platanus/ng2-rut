@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "description": "RUT for Angular 2",
   "main": "dist/ng2-rut.module.js",
+  "types": "dist/ng2-rut.module.d.ts",
   "files": [
     "dist",
     "README.md",
