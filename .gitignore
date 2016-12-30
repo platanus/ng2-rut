@@ -4,3 +4,7 @@ npm-debug.log
 /typings
 *.map
 /demo/build
+
+/compiled
+*.metadata.json
+/src/**/*.js

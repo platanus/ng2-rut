@@ -1,6 +1,5 @@
 import { FormControl } from '@angular/forms';
-import { rutValidate } from 'rut-helpers';
-export declare function validateRutFactory(rutValidate: rutValidate): (c: FormControl) => {
+export declare function validateRutFactory(rutValidate: Function): (c: FormControl) => {
     invalidRut: boolean;
 };
 export declare class RutValidator {

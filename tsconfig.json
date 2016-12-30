@@ -12,5 +12,8 @@
   },
   "files": [
     "src/ng2-rut.module.ts"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "genDir": "compiled"
+  }
 }

@@ -6,7 +6,7 @@
   "scripts": {
     "demo:watch": "webpack-dev-server --progress --colors --watch --config webpack.demo.js",
     "demo:dist": "webpack --progress --colors --dist --config webpack.demo.js",
-    "build": "rm -rf dist && node node_modules/typescript/bin/tsc",
+    "build": "rm -rf dist && ngc",
     "test": "karma start karma.conf.js",
     "test:watch": "npm run test -- --auto-watch --no-single-run"
   },
