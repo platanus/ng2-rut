@@ -2,7 +2,13 @@
   "name": "ng2-rut",
   "version": "0.2.0",
   "description": "RUT for Angular 2",
-  "main": "index.js",
+  "main": "dist/ng2-rut.module.js",
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "yarn.lock"
+  ],
   "scripts": {
     "demo:watch": "webpack-dev-server --progress --colors --watch --config webpack.demo.js",
     "demo:dist": "webpack --progress --colors --dist --config webpack.demo.js",
