@@ -6,5 +6,4 @@ npm-debug.log
 /demo/build
 
 /compiled
-*.metadata.json
 /src/**/*.js
