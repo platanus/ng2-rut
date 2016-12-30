@@ -1,4 +1,4 @@
-import { Directive, ValueProvider, forwardRef } from '@angular/core';
+import { Directive, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { rutFormat } from 'rut-helpers';
 
@@ -7,29 +7,29 @@ import { ElementRef, Renderer } from '@angular/core';
 const RUT_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => RutValueAccessor),
-  multi: true
+  multi: true,
 };
 
 @Directive({
   selector: 'input[formatRut]',
   host: {
     '(rutChange)': 'onChange($event)',
-    '(blur)': 'onTouched($event)'
+    '(blur)': 'onTouched($event)',
   },
   providers: [RUT_VALUE_ACCESSOR],
 })
 export class RutValueAccessor implements ControlValueAccessor {
   constructor(
-    private _renderer: Renderer,
-    private _elementRef: ElementRef
+    private renderer: Renderer,
+    private elementRef: ElementRef,
     ) { }
 
-  public onChange: any = (_) => { /*Empty*/ }
-  public onTouched: any = () => { /*Empty*/ }
+  public onChange: any = (_) => { /*Empty*/ };
+  public onTouched: any = () => { /*Empty*/ };
 
   public writeValue(value: any): void {
-    let normalizedValue = rutFormat(value) || '';
-    this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', normalizedValue);
+    let normalizedValue: string = rutFormat(value) || '';
+    this.renderer.setElementProperty(this.elementRef.nativeElement, 'value', normalizedValue);
   }
 
   public registerOnChange(fn: (_: any) => void): void { this.onChange = fn; }

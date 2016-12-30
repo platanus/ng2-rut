@@ -7,29 +7,28 @@ import * as rutHelpers from 'rut-helpers';
     '(blur)': 'onBlur($event.target.value)',
     '(focus)': 'onFocus($event.target.value)',
     '(input)': 'onChange($event.target.value)',
-  }
+  },
 })
 export class RutDirective {
-  @Output() rutChange: EventEmitter<any>;
+  @Output() public rutChange: EventEmitter<any>;
 
   constructor(
-    private _elementRef: ElementRef,
-    private _renderer: Renderer) {
+    private elementRef: ElementRef,
+    private renderer: Renderer) {
       this.rutChange = new EventEmitter();
     }
 
-  public onFocus(value:string) {
-    let cleanedRut = rutHelpers.rutClean(value);
-    this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', cleanedRut);
+  public onFocus(value: string) {
+    let cleanedRut: string = rutHelpers.rutClean(value);
+    this.renderer.setElementProperty(this.elementRef.nativeElement, 'value', cleanedRut);
   }
 
-  public onBlur(value:string) {
-    let formattedRut = rutHelpers.rutFormat(value) || '';
-    this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', formattedRut);
+  public onBlur(value: string) {
+    let formattedRut: string = rutHelpers.rutFormat(value) || '';
+    this.renderer.setElementProperty(this.elementRef.nativeElement, 'value', formattedRut);
   }
 
-  public onChange(value:string) {
+  public onChange(value: string) {
     this.rutChange.emit(rutHelpers.rutClean(value));
   }
-
 }

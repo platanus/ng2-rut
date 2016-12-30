@@ -15,14 +15,13 @@ The easier way is to import the Ng2Rut module at your app-level module ending wi
 
 ```typescript
 import { NgModule } from '@angular/core';
-import { Ng2Rut, RutValidator } from '../../src';
+import { Ng2Rut } from '../../src';
 import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
     DemoAppComponent,
   ],
-  providers: [RutValidator],
   imports: [
     BrowserModule,
 		...,
