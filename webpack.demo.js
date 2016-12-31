@@ -1,13 +1,14 @@
 'use strict';
 
-var webpack = require('webpack');
-var path = require('path');
-var srcPath = path.join(__dirname, 'demo', 'src');
-var production = -1 < process.argv.indexOf('--dist');
-var outPath = production ? 'dist' : 'build';
-var devtool = production ? 'source-map' : 'eval-source-map';
+const webpack = require('webpack');
+const path = require('path');
 
-var config = {
+const srcPath = path.join(__dirname, 'demo', 'src');
+const production = process.argv.indexOf('--dist') > -1;
+const outPath = production ? 'dist' : 'build';
+const devtool = production ? 'source-map' : 'eval-source-map';
+
+const config = {
   target: 'web',
   cache: true,
   entry: {
@@ -20,19 +21,19 @@ var config = {
       '@angular/forms',
       '@angular/core',
       '@angular/common',
-    ]
+    ],
   },
   resolve: {
     root: srcPath,
     extensions: ['', '.js', '.ts'],
     modulesDirectories: ['node_modules'],
-    alias: {}
+    alias: {},
   },
   output: {
     path: path.join(__dirname, 'demo', outPath),
     publicPath: '/demo/dist/',
     filename: 'app.js',
-    pathInfo: true
+    pathInfo: true,
   },
 
   module: {
@@ -40,28 +41,28 @@ var config = {
     loaders: [
       {
         test: /\.ts$/,
-        loader: 'ts'
+        loader: 'ts',
       },
-      { test: /\.html/, loader: 'html?-minimize' }
-    ]
+      { test: /\.html/, loader: 'html?-minimize' },
+    ],
   },
   ts: {
-    configFileName: 'tsconfig.demo.json'
+    configFileName: 'tsconfig.demo.json',
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
       filename: 'common.js',
-      minChunks: Infinity
+      minChunks: Infinity,
     }),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
   ],
   debug: true,
-  devtool: devtool
+  devtool,
 };
 if (production) {
   config.plugins.push(new webpack.optimize.UglifyJsPlugin({
-    mangle: false
+    mangle: false,
   }));
   config.plugins.push(new webpack.optimize.OccurrenceOrderPlugin(true));
 }
