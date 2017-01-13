@@ -1,27 +1,24 @@
 import { Directive, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, FormControl } from '@angular/forms';
-import { RutService } from './rut.service';
+import { rutValidate } from 'rut-helpers';
 
-function validateRutFactory(rutService: RutService) {
+export function validateRutFactory(rutValidate: Function) {
   return (c: FormControl) => {
-    return rutService.validateRut(c.value) ? null : { invalidRut: true };
+    return rutValidate(c.value) ? null : { invalidRut: true };
   };
 }
 
 @Directive({
   selector: '[validateRut][ngModel],[validateRut][formControl]',
   providers: [
-    RutService,
     { provide: NG_VALIDATORS, useExisting: forwardRef(() => RutValidator), multi: true },
   ],
 })
 export class RutValidator {
   private validator: Function;
 
-  constructor(
-    rutService: RutService
-  ) {
-    this.validator = validateRutFactory(rutService);
+  constructor() {
+    this.validator = validateRutFactory(rutValidate);
   }
 
   public validate(c: FormControl) {

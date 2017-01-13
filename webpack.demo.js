@@ -12,22 +12,27 @@ const config = {
   target: 'web',
   cache: true,
   entry: {
-    app: path.join(srcPath, 'demo-app.ts'),
+    app: path.join(srcPath, 'demo-app.module.ts'),
     common: [
       'reflect-metadata/Reflect.js',
       'zone.js/dist/zone.js',
+      '@angular/platform-browser',
+      '@angular/platform-browser-dynamic',
+      '@angular/forms',
+      '@angular/core',
+      '@angular/common',
     ],
   },
   resolve: {
     root: srcPath,
-    extensions: ['', '.js', '.ts', '.html'],
+    extensions: ['', '.js', '.ts'],
     modulesDirectories: ['node_modules'],
     alias: {},
   },
   output: {
     path: path.join(__dirname, 'demo', outPath),
-    publicPath: '',
-    filename: '[name].js',
+    publicPath: '/demo/dist/',
+    filename: 'app.js',
     pathInfo: true,
   },
 

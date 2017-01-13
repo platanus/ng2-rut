@@ -7,10 +7,13 @@
     "sourceMap": false,
     "moduleResolution": "node",
     "declaration": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "lib": ["dom", "es6"]
   },
   "files": [
-    "src/ng2-rut.ts",
-    "typings/index.d.ts"
-  ]
+    "src/ng2-rut.module.ts"
+  ],
+  "angularCompilerOptions": {
+    "genDir": "compiled"
+  }
 }

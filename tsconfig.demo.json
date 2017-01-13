@@ -5,10 +5,11 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "lib": ["dom", "es6"]
   },
   "files": [
-    "demo/src/demo-app.ts",
-    "typings/index.d.ts"
+    "demo/src/demo-app.module.ts",
+    "demo/src/demo-app.component.ts"
   ]
 }

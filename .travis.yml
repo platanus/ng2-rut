@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - '6'
+script:
+  - yarn test
+cache: yarn
+before_deploy:
+  - yarn build
+deploy:
+  provider: npm
+  email: contacto@platan.us
+  api_key:
+    secure: xZEm6w6mub4q0UvFGlIKxjnwN9QpLMEmp+C/1jiHeWlGmyhp9SLwaXjp5gG1iVXvhNxOhPUUOMH7oC705PRxJ8O2QfMonJpDZr8FnnSYzi+DL3pMhsIqRaWGFgLy2QM/aQ3Z+1hjAPTFzV1syLMXdBhevuM3bmGNb9SYxjqOhSMKS5ClHXiaLH/V1vtu+Gv1HOhoXqkf8eiqEapoFHoqWl+RR0ucXHAYryi+Da3JkYvyX2sL+uMVUnldiWw4lg1gqQQSIfV80UfrSZq/P+HzFSrTlEseOMVVcSW3tuHy025WJ8RedAm9gsRlGhUC1ZHf/rL1+zPQoCj6hS2ZWX60AOTYkHqZvc+KdKhSBskWV24LMfx17QzvceUWqTmwSoDjB4z5C6BWLPD4H7dMO9U/7+4fM7B29baebqZIRDBJH8wQJQRRZ9lMxBVggjXOUh80R7qEZRh/vs16hvuXhVPZQjbHdohFfPt/70xMYX08RSt5co+ifX6/w/21EcyucSEgiPzu0SYQrTsnY7g4H1Xig0BGWU+XjWwaXoVnzyl7E6hbA3vIio3Ompa7GoHqDTKKiQRBPtWN90Rmyk0NyG/5cdX9wtzOZchTWkqWkBL1HfEqn4MBUfqZQMIBgU03bk7+VJxQlQzlfYxtKz9fjPuRGqJAbgco+iRPVHjaleQnE/c=
+  on:
+    tags: true
+    repo: platanus/ng2-rut
