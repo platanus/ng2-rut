@@ -5,29 +5,29 @@ Angular 2 library with several components to handle Chilean RUT validation, clea
 
 ## Installation
 
-TODO
+```bash
+yarn add ng2-rut
+# or
+npm install ng2-rut --save
+```
 
 ## Usage
 
 ### Set-up:
 
-The easier way is to import the Ng2Rut module at your app-level module ending with something like this:
+The easiest way to use this library is to import Ng2Rut in your app's main module.
 
 ```typescript
 import { NgModule } from '@angular/core';
-import { Ng2Rut } from '../../src';
+import { Ng2Rut } from 'ng2-rut';
 import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
-  declarations: [
-    DemoAppComponent,
-  ],
+  ...
   imports: [
     BrowserModule,
-		...,
     Ng2Rut
   ],
-  bootstrap: [DemoAppComponent],
 })
 class DemoAppModule { }
 ```
@@ -36,11 +36,53 @@ See `./demo` folder for a fully working example.
 
 ### Using it:
 
-ng2 rut exposes various elements that can be used to perform input validation and formatting. Probably you want to use one of the following:
+ng2-rut exposes multiple features that can be used to perform input validation and formatting. Probably you want to use one of the following:
 
 - `RutValidator`: Exposes the `validateRut` directive (to attach to models or inputs) and the RutValidator class to be used as `Validator` on reactive forms.
 - `RutPipe`: Exposes the `RutPipe` pipe to format rut numbers on templates
 - `RutDirective`: Exposes the `formatRut` directive to format RUT inputs.
+
+#### RutValidator
+
+##### Reactive forms
+
+```typescript
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+export class DemoAppComponent {
+  constructor (fb: FormBuilder, rutValidator: RutValidator) {
+    this.reactiveForm = fb.group({
+      rut: ['30972198', [Validators.required, rv]]
+    });
+  }
+}
+
+```
+
+##### Template Form
+```html
+<input [(ngModel)]="user.rut" name="rut" validateRut required>
+```
+
+#### RutPipe
+
+```html
+{{ user.rut }}
+<!-- 30972198 -->
+{{ user.rut | rut }}
+<!-- 3.097.219-8 -->
+```
+
+#### formatRut (Directive)
+```html
+<input [(ngModel)]="user.rut" name="rut" formatRut required>
+<!--
+(on blur)
+3.097.219-8
+
+(on focus)
+30972198
+-->
+```
 
 ## Contributing
 
