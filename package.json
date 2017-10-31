@@ -37,6 +37,7 @@
   "devDependencies": {
     "@angular/common": "~2.4.1",
     "@angular/compiler": "~2.4.1",
+    "@angular/compiler-cli": "^2.4.1",
     "@angular/core": "~2.4.1",
     "@angular/forms": "~2.4.1",
     "@angular/platform-browser": "~2.4.1",
@@ -63,7 +64,6 @@
     "zone.js": "^0.7.2"
   },
   "dependencies": {
-    "@angular/compiler-cli": "^2.4.1",
     "rut-helpers": "^0.1.0"
   }
 }
