@@ -1,16 +1,17 @@
 language: node_js
 node_js:
-  - '6'
+- '6'
 script:
-  - yarn test
+- yarn test
 cache: yarn
 before_deploy:
-  - yarn build
+- yarn build
 deploy:
   provider: npm
   email: contacto@platan.us
   api_key:
     secure: zPwc42f8midPX7Syg7KbkJeYP7cvzfhUhL5nn5Y51jUeouHhKrNtE/lV0YHJeNJrAIFkzD83jgpEJf9AeXJo160jxQNZdUsaN8Vb2+B8660ylIOOBQZqy/RRJsYcbZlTMeuPV8TIV3TRLK0J25mbdUEMIKpvl9B6u7MdnufeiIfgF/wBW8ZzwhL15JBM/xVSqZO7O4MsvYR2LO65Y712fUkILoyjARZATnPt7Y1rHuCH6QyiFkWKLgXEnh/1NYR5AXkTbLT7Tty0GqZt658Fb4hDSFUA96GaXobcK107FdIH7BLBeje1z7klmRh5GWxINub5YQQYNRDF3VpLVYKU8SzpwdQeSKUytz+Pq0TaCZsq691uj6t1SWMCtTV0YFtnxJIy/zQBG+gGfu218ii5zBRhUZHiN2NjUvNieZIyDe/s8eXlNrCfo/cRayR35clLE6quX1T3Umxt0i+vbMMQaBUTvnUuB4Cgz6LRB+Q/nKGp8EByYN6nYF9wfPW/J2C7/xu/UsxeYRAL61BLI/MRsmtkXmOsuX1nLmYUjf3dqZiqFmV0zEwL5C793nG+kEewm5y94KyP39TVLX2TS9AJM+tF/y4DnXK5TD8EwgluK/YC7fI0E0lazaCm5jviZoZovqI303uEeHEKGf5yM7VlXRk/ArRamWnmTrEq+vwITa4=
+  skip_cleanup: true
   on:
     tags: true
     repo: platanus/ng2-rut
