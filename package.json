@@ -42,7 +42,7 @@
     "@angular/forms": "~2.4.1",
     "@angular/platform-browser": "~2.4.1",
     "@angular/platform-browser-dynamic": "~2.4.1",
-    "@types/jasmine": "^2.5.40",
+    "@types/jasmine": "2.5.40",
     "@types/requirejs": "^2.1.26",
     "core-js": "^2.4.1",
     "html-loader": "^0.4.3",
