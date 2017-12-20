@@ -1,4 +1,4 @@
-import { Directive, Renderer, ElementRef, EventEmitter, Output } from '@angular/core';
+import { Directive, Renderer2, ElementRef, EventEmitter, Output } from '@angular/core';
 import * as rutHelpers from 'rut-helpers';
 
 @Directive({
@@ -14,18 +14,18 @@ export class RutDirective {
 
   constructor(
     private elementRef: ElementRef,
-    private renderer: Renderer) {
+    private renderer: Renderer2) {
       this.rutChange = new EventEmitter();
     }
 
   public onFocus(value: string) {
     let cleanedRut: string = rutHelpers.rutClean(value);
-    this.renderer.setElementProperty(this.elementRef.nativeElement, 'value', cleanedRut);
+    this.renderer.setProperty(this.elementRef.nativeElement, 'value', cleanedRut);
   }
 
   public onBlur(value: string) {
     let formattedRut: string = rutHelpers.rutFormat(value) || '';
-    this.renderer.setElementProperty(this.elementRef.nativeElement, 'value', formattedRut);
+    this.renderer.setProperty(this.elementRef.nativeElement, 'value', formattedRut);
   }
 
   public onChange(value: string) {
