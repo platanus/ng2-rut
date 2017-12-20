@@ -2,7 +2,7 @@ import { Directive, Renderer2, ElementRef, EventEmitter, Output } from '@angular
 import * as rutHelpers from 'rut-helpers';
 
 @Directive({
-  selector: 'input[formatRut]',
+  selector: '[formatRut]',
   host: {
     '(blur)': 'onBlur($event.target.value)',
     '(focus)': 'onFocus($event.target.value)',
