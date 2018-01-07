@@ -1,7 +1,7 @@
 Angular 2 RUT
 =============
 
-Angular 2 library with several components to handle Chilean RUT validation, cleaning and formatting.
+Angular 2 library with several components to handle [Chilean RUT](https://en.wikipedia.org/wiki/National_identification_number#Chile) validation, cleaning and formatting.
 
 ## Installation
 
