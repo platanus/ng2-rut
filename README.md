@@ -51,7 +51,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 export class DemoAppComponent {
   constructor (fb: FormBuilder, rutValidator: RutValidator) {
     this.reactiveForm = fb.group({
-      rut: ['30972198', [Validators.required, rv]]
+      rut: ['30972198', [Validators.required, rutValidator]]
     });
   }
 }
