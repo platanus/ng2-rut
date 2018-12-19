@@ -40,9 +40,10 @@
   dependencies:
     tsickle "^0.2"
 
-"@types/jasmine@^2.5.40":
+"@types/jasmine@2.5.40":
   version "2.5.40"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.40.tgz#875c7ae739dcab1342794f51231c4aadcda6eb79"
+  integrity sha1-h1x65zncqxNCeU9RIxxKrc2m63k=
 
 "@types/requirejs@^2.1.26":
   version "2.1.28"
