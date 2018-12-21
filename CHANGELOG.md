@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+### v0.3.1
+- Fix deploy to npm
+
 ### v0.3.0
 - Enable usage outside <input> elements
 
