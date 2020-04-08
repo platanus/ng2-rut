@@ -2,7 +2,7 @@ import { Directive, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { rutFormat } from 'rut-helpers';
 
-import { ElementRef, Renderer } from '@angular/core';
+import { ElementRef, Renderer2 } from '@angular/core';
 
 const RUT_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
