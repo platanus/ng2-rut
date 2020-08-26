@@ -20,7 +20,7 @@ const RUT_VALUE_ACCESSOR: any = {
 })
 export class RutValueAccessor implements ControlValueAccessor {
   constructor(
-    private renderer: Renderer,
+    private renderer: Renderer2,
     private elementRef: ElementRef,
     ) { }
 
