@@ -4,7 +4,7 @@ import { rutValidate } from 'rut-helpers';
 
 export function validateRutFactory(rutValidate: Function) {
   return (c: FormControl) => {
-    return rutValidate(c.value) ? null : { invalidRut: true };
+    return !c.value || rutValidate(c.value) ? null : { invalidRut: true };
   };
 }
 
