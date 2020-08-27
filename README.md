@@ -1,3 +1,7 @@
+# DEPRECATED - no longer actively maintained
+You can use @danielsotopino fork at https://github.com/landscapedotcl/ng9-rut for angular > 4
+
+
 Angular 2 RUT
 =============
 
